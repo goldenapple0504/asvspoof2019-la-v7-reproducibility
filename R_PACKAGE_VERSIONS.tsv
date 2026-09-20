@@ -1,0 +1,8 @@
+software	version
+R	4.6.1
+lme4	2.0.6
+Matrix	1.7.5
+splines	4.6.1
+mixmeta	1.2.2
+clubSandwich	0.7.0
+mgcv	1.9.4

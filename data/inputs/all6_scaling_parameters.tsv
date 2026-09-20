@@ -1,0 +1,7 @@
+feature	feature_mean	feature_sd	n_observations	n_tokens	scaling_pool	A04_included	ddof
+energy	-24.26457044236067	11.517706460216337	1635975	181775	eligible TRAIN: bonafide+A01+A02+A03; pooled across all trajectory times; sample SD ddof=1	False	
+centroid	1374.3933120699116	1194.0332373101871	1635975	181775	eligible TRAIN: bonafide+A01+A02+A03; pooled across all trajectory times; sample SD ddof=1	False	
+tilt	-4.822585993914141	4.539647246321076	1635975	181775	eligible TRAIN: bonafide+A01+A02+A03; pooled across all trajectory times; sample SD ddof=1	False	
+flux	0.3167686779820848	0.1977342266224661	1454200	181775	eligible TRAIN: bonafide+A01+A02+A03; pooled across all trajectory times; sample SD ddof=1	False	
+flatness	0.0323018704281	0.077993636733505	1635975	181775	eligible TRAIN bona fide + A01 + A02 + A03 pooled across all nine trajectory times	False	1.0
+cpps	10.90163759841277	4.639778209156172	854703	94967	eligible TRAIN bona fide + A01 + A02 + A03 pooled across all nine trajectory times	False	1.0

@@ -1,0 +1,10 @@
+MFA 3.4.1 command recorded in the original alignment history, with paths made portable:
+
+  mfa align <corpus_dir> <model_dir>/english_us_arpa.dict <model_dir>/english_us_arpa.zip <textgrid_output_dir> --clean --single_speaker
+
+Run once per corpus group. Each corpus directory holds the ASVspoof audio and
+its matched plain-text transcript under the same utterance ID. The original
+run used the english_us_arpa pronunciation dictionary and english_us_arpa
+acoustic model. The original command history is in the source workspace's
+rebuild_v5/mfa_work/command_history.yaml; this text records the successful
+command form, without embedding machine-specific absolute paths.

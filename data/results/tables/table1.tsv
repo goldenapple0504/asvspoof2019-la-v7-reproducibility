@@ -1,0 +1,13 @@
+system	partition	architecture	analysed_utterances
+A01	TRAIN	VAE + AR LSTM-RNN → WaveNet	3797
+A02	TRAIN	VAE + AR LSTM-RNN → WORLD	3799
+A03	TRAIN	Feedforward NN → WORLD	3797
+A04	TRAIN	CART → waveform concatenation	3783
+A07	EVAL	LSTM-RNN → WORLD + GAN	3196
+A08	EVAL	AR LSTM-RNN → neural source-filter	3201
+A09	EVAL	LSTM-RNN → Vocaine	3175
+A10	EVAL	Attention seq2seq → WaveRNN	3242
+A11	EVAL	Attention seq2seq → Griffin-Lim	3180
+A12	EVAL	RNN → WaveNet	3194
+All TTS	—	—	34364
+Bona fide	TRAIN + EVAL	Natural speech	1984

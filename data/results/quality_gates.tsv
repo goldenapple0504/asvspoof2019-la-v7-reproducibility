@@ -1,0 +1,22 @@
+gate	pass	observed	expected
+exactly_146_extraction_checkpoints	True	146	146
+planned_chunk_ids_exactly_once	True	[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145]	[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145]
+all_checkpoint_hashes_valid	True	True	True
+checkpoint_membership_hashes_match_frozen_plan	True	True	True
+summed_unique_token_coverage_482509	True	482509	482509
+no_duplicate_or_missing_chunk_tokens	True	{'exact_checkpoint_count': True, 'planned_chunk_ids_exactly_once': True, 'all_chunk_membership_exact': True, 'no_duplicate_tokens_across_chunks': True, 'no_missing_or_extra_tokens': True}	all True
+audio_file_coverage_matches_frozen_plan	True	36348	36348
+all_extraction_checkpoints_pass	True	146	146 and all PASS
+zero_unexpected_extraction_errors	True	0	0
+short_matching_all_systems	True	10	10
+flatness_official_extension_lineage_all_systems	True	10	10
+cpps_complete_region_rematching_all_systems	True	10	10
+cpps_duration_SMD_gate	True	0.1999979411535766	<=0.25
+sixty_rank_safe_nonsingular_models_with_authorized_CR2_outcomes	True	{'rows': 60, 'schema_complete': True, 'authorized_status_only': True, 'all_rows_valid': True}	60; authorized CR2 outcome per row
+sixty_average_targets	True	60	60
+sixty_shape_targets	True	60	60
+all_predefined_time_targets	True	530	530
+six_contrast_meta_analyses	True	6	6
+scalar_meta_heterogeneity_and_predictions	True	18	18
+trajectory_meta_predictions_all_official_times	True	106	106
+CR2_classification_sensitivity_export	True	60	60

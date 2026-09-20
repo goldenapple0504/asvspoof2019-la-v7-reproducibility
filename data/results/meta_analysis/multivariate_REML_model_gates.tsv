@@ -1,0 +1,7 @@
+feature	systems	outcomes	method	moderator	between_system_covariance	converged	logLik	Q	Q_df	Q_pvalue	I_squared_percent	fixed_covariance_pass	between_covariance_pass	Psi_min_eigen
+energy	10	5	multivariate REML	TRAIN/EVAL partition	diagonal (official V6 convention)	TRUE	43.9567386191792	1021.42693900859	40	0	96.0839098253249	TRUE	TRUE	0.0012757468487883
+centroid	10	5	multivariate REML	TRAIN/EVAL partition	diagonal (official V6 convention)	TRUE	45.7199335306093	666.557289451928	40	0	93.9990154435353	TRUE	TRUE	0.000798741727959447
+tilt	10	5	multivariate REML	TRAIN/EVAL partition	diagonal (official V6 convention)	TRUE	42.3305708082872	767.479320798781	40	0	94.7881331892606	TRUE	TRUE	0.00211372272327926
+flux	10	5	multivariate REML	TRAIN/EVAL partition	diagonal (official V6 convention)	TRUE	42.0795414521579	1196.7335419893	40	0	96.6575684062879	TRUE	TRUE	0.00182473183226092
+flatness	10	5	multivariate REML	TRAIN/EVAL partition	diagonal (official V6 convention)	TRUE	46.36869830273	1006.30164526877	40	0	96.0250487328462	TRUE	TRUE	0.000827770795120402
+cpps	10	5	multivariate REML	TRAIN/EVAL partition	diagonal (official V6 convention)	TRUE	52.0097445531287	132.136505040555	40	8.81961170762224e-12	69.7282745689972	TRUE	TRUE	3.11447022726182e-08

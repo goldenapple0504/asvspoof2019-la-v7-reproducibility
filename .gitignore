@@ -1,0 +1,19 @@
+# Raw speech and locally extracted audio must never enter this release.
+*.flac
+*.wav
+*.mp3
+*.ogg
+__pycache__/
+*.pyc
+.pytest_cache/
+.Rhistory
+.RData
+logs/
+cache/
+tmp/
+*.rds
+*.zip
+!data/textgrids/v7_textgrids.zip
+*.tar
+*.tar.gz
+FULL_V7_RUN_AUTHORIZED.txt

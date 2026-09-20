@@ -1,0 +1,5 @@
+level	significant	equivalent	not_equivalent	total
+Average	True	39	1	40
+Average	False	20	0	20
+Time-resolved	True	122	126	248
+Time-resolved	False	251	31	282

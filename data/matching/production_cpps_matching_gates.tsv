@@ -1,0 +1,11 @@
+feature_family	target_system	matched_pairs	matched_rows	duration_A_SMD	duration_B_SMD	every_match_two_sides	exact_pair_within_match	exact_pair_frequencies_identical	unique_side_per_match	duration_SMD_0_25_pass	all_gates_pass
+cpps_complete_three_region	A01	923	1846	-0.19999794115357666	-0.19997970762038603	True	True	True	True	True	True
+cpps_complete_three_region	A02	914	1828	-0.19999430051866737	-0.19909366139764365	True	True	True	True	True	True
+cpps_complete_three_region	A03	1078	2156	-0.15846351673823897	-0.1280664059413176	True	True	True	True	True	True
+cpps_complete_three_region	A04	1070	2140	-0.13100598140739464	-0.16685163378403972	True	True	True	True	True	True
+cpps_complete_three_region	A07	916	1832	-0.13502108778853503	-0.19990879213017065	True	True	True	True	True	True
+cpps_complete_three_region	A08	875	1750	-0.19958105102121954	-0.18450872762270282	True	True	True	True	True	True
+cpps_complete_three_region	A09	853	1706	-0.10793206121967876	-0.1483180897229048	True	True	True	True	True	True
+cpps_complete_three_region	A10	910	1820	-0.1492017689670384	-0.19995762828396274	True	True	True	True	True	True
+cpps_complete_three_region	A11	921	1842	-0.15831173638193563	-0.1817124222081294	True	True	True	True	True	True
+cpps_complete_three_region	A12	922	1844	-0.17751717305885992	-0.19999642198631515	True	True	True	True	True	True
