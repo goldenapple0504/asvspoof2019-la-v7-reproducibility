@@ -20,17 +20,29 @@ the inherited `extract_flatness_cpp_trajectories.py` helper.
 | --- | --- |
 | `code/` | Final V7 extraction, matching, model, inference, meta-analysis, and figure/table scripts, plus small replay adapters. Original production filenames are preserved so imports resolve. |
 | `data/utterances/` | Frozen V7 utterance IDs by system and partition, joined transcripts, and known source-stage exclusion reasons. |
-| `data/textgrids/` | One MFA TextGrid for each of 36,348 used utterances, compressed in `v7_textgrids.zip`, with per-file SHA-256. |
+| `data/textgrids/` | Per-file SHA-256 manifest for the MFA TextGrids of all 36,348 used utterances; the TextGrid archive itself is a release asset. |
 | `data/inputs/` | Frozen ten-system Boundary trajectories, eligible tokens, scaling constants, and inherited matching lineages needed by V7. These are selected inputs, not an archive of earlier projects. |
-| `data/trajectories/` | 146 Parquet chunks of Interior_A and Interior_B trajectories for all six features. Combine these with Boundary tables in `data/inputs/` for all three regions. |
+| `data/trajectories/` (release asset) | 146 Parquet chunks of Interior_A and Interior_B trajectories for all six features. Combine these with Boundary tables in `data/inputs/` for all three regions. |
 | `data/validity/` | Per-token, per-region validity and CPPS exclusion reasons. |
 | `data/matching/` | Final exact ordered-phone-pair matched rows for short-frame, flatness, and complete-three-region CPPS sets. |
 | `data/results/` | Official final RQ1, RQ2, meta-analysis, quality-gate, and table TSVs, plus 60 final model random-structure diagnostics used by Table S2. |
 | `data/figures_inputs/`, `data/figures/` | Seven exact plotting CSVs, exported Fig. 1–7, and exported Fig. S1. |
-| `FILE_MANIFEST.tsv` | Relative path, byte count, and SHA-256 for every payload file. |
+| `FILE_MANIFEST.tsv` | Relative path, byte count, and SHA-256 for every repository file and every file restored from release assets. |
 
-Large Parquet and TextGrid archive files use Git LFS. Install Git LFS
-before cloning a published copy and run `git lfs pull` after cloning.
+Large data files are not part of the repository tree. They are attached as
+assets to the [v1.0 release](https://github.com/goldenapple0504/asvspoof2019-la-v7-reproducibility/releases/tag/v1.0):
+
+| Asset | Restores |
+| --- | --- |
+| `v7_inputs.zip` | `data/inputs/*.parquet`, `data/inputs/trajectory_eligible_tokens.tsv` |
+| `v7_trajectories.zip` | `data/trajectories/` (146 Parquet chunks) |
+| `v7_textgrids.zip` | `data/textgrids/v7_textgrids.zip` |
+| `RELEASE_ASSETS_SHA256.tsv` | SHA-256 of the three assets |
+
+Download the three archives and unzip them in the repository root; each
+archive stores repository-relative paths. Every restored file can then be
+checked against `FILE_MANIFEST.tsv`. `make_release_assets.py` rebuilds these
+archives from a fully hydrated V7 checkout.
 
 ## Software and upstream data
 
@@ -42,7 +54,7 @@ before cloning a published copy and run `git lfs pull` after cloning.
   Set `V7_R_LIB` to a library with these versions or install them normally.
 - MFA 3.4.1. The successful command form, pronunciation dictionary
   `english_us_arpa.dict`, and acoustic model `english_us_arpa.zip` are in
-  `code/02_run_mfa.txt`. The selected TextGrids are included, so rerunning
+  `code/02_run_mfa.txt`. The selected TextGrids are supplied in the release, so rerunning
   MFA is optional for a derived-data replay.
 - Download ASVspoof 2019 LA audio and the ASVspoof/VCTK metadata from the
   [official ASVspoof database page](https://www.asvspoof.org/database) and
@@ -83,8 +95,8 @@ The replay adapter builds a working directory outside this repository and
 links or copies the derived inputs into the original V7 layout. Its local
 authorization marker only satisfies a guard in the historical production
 scripts; the marker is excluded from this repository. For a quick check
-without refitting, run the final four Python commands against the included
-`data/` files and compare their outputs with `data/results/tables/` and
+without refitting, run the final four Python commands after unpacking the
+release assets and compare their outputs with `data/results/tables/` and
 `data/figures/`.
 
 The final matching is one-to-one within each **ordered** phone pair. CPPS
@@ -128,6 +140,10 @@ included.
 ## Validation and limits
 
 - `data/results/quality_gates.tsv` records all 21 final gates as passed.
+- `data/results/inference/model_acceptance_gates.tsv` records
+  `NOT_APPLICABLE_CROSSED_CLUSTERING` for all 60 models. CR2 produced no
+  sensitivity estimates because match and utterance clusters were crossed;
+  inference uses the model-based covariance.
 - All 36,348 eligible utterances have TextGrids. The 7,919 duplicate source
   copies were byte-identical; the archive contains one copy per ID.
 - `code/export_figure_inputs.py` reproduced all seven plotting CSVs exactly

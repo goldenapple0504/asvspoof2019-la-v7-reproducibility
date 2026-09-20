@@ -13,7 +13,11 @@ cache/
 tmp/
 *.rds
 *.zip
-!data/textgrids/v7_textgrids.zip
 *.tar
 *.tar.gz
 FULL_V7_RUN_AUTHORIZED.txt
+release_assets/
+data/trajectories/
+data/inputs/*.parquet
+data/inputs/trajectory_eligible_tokens.tsv
+data/textgrids/v7_textgrids.zip
