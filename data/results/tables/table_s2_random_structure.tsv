@@ -1,0 +1,20 @@
+feature	system	initial_fit	final_random_structure
+Energy	A01	singular; match variance at zero	token occurrence + utterance
+Energy	A02	singular; match variance at zero	token occurrence + utterance
+Energy	A08	singular; match variance at zero	token occurrence + utterance
+Energy	A09	singular; match variance at zero	token occurrence + utterance
+Spectral centroid	A09	singular; match variance at zero	token occurrence + utterance
+Spectral tilt	A01	singular; match variance at zero	token occurrence + utterance
+Spectral tilt	A02	singular; match variance at zero	token occurrence + utterance
+Spectral tilt	A03	singular; match variance at zero	token occurrence + utterance
+Spectral tilt	A09	singular; match variance at zero	token occurrence + utterance
+Spectral flatness	A01	singular; match variance at zero	token occurrence + utterance
+Spectral flatness	A02	singular; match variance at zero	token occurrence + utterance
+Spectral flatness	A03	singular; match variance at zero	token occurrence + utterance
+Spectral flatness	A04	singular; match variance at zero	token occurrence + utterance
+Spectral flatness	A08	singular; match variance at zero	token occurrence + utterance
+Spectral flatness	A09	singular; match variance at zero	token occurrence + utterance
+Spectral flux	A02	singular; match variance at zero	token occurrence + utterance
+CPPS	A01	singular; match variance at zero	token occurrence + utterance
+CPPS	A08	singular; match variance at zero	token occurrence + utterance
+CPPS	A10	singular; match variance at zero	token occurrence + utterance

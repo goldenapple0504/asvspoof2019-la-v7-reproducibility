@@ -1,0 +1,2 @@
+attempt	random_structure	singular	zero_variance_components	variance_components	residual_variance	zero_threshold
+1	token_occurrence_id + match_id + utterance_id	FALSE		token_occurrence_id=0.031634501973500206;match_id=0.002053224785785059;utterance_id=0.019951738944896314;Residual=0.766104812035389715	0.76610481203539	7.6610481203539e-07

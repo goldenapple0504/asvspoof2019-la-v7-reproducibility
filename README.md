@@ -25,7 +25,7 @@ the inherited `extract_flatness_cpp_trajectories.py` helper.
 | `data/trajectories/` | 146 Parquet chunks of Interior_A and Interior_B trajectories for all six features. Combine these with Boundary tables in `data/inputs/` for all three regions. |
 | `data/validity/` | Per-token, per-region validity and CPPS exclusion reasons. |
 | `data/matching/` | Final exact ordered-phone-pair matched rows for short-frame, flatness, and complete-three-region CPPS sets. |
-| `data/results/` | Official final RQ1, RQ2, meta-analysis, quality-gate, and table TSVs. |
+| `data/results/` | Official final RQ1, RQ2, meta-analysis, quality-gate, and table TSVs, plus 60 final model random-structure diagnostics used by Table S2. |
 | `data/figures_inputs/`, `data/figures/` | Seven exact plotting CSVs, exported Fig. 1–7, and exported Fig. S1. |
 | `FILE_MANIFEST.tsv` | Relative path, byte count, and SHA-256 for every payload file. |
 
@@ -94,9 +94,9 @@ before assignment. The V7 seed is `20260819` (`v7_common.py`).
 
 ## Manuscript traceability
 
-This mapping was checked against the current Results manuscript
-(`Results_V7_final_with_references (5).docx`, 2026-09-20). The table exporter
-reproduces its reported counts and rounded estimates. The supplied figure
+This mapping was checked against the current Results manuscript and
+`Supplementary_material.docx` supplied with it. The table exporter
+reproduces their reported counts and rounded estimates. The supplied figure
 images came from the completed figure pipeline; pixels can differ when
 rerendered with different fonts.
 
@@ -107,6 +107,7 @@ rerendered with different fonts.
 | Table 3 | `code/export_tables.py` | `data/results/tables/table3.tsv` ← `data/results/inference/average_specificity.tsv`, `time_resolved_specificity.tsv` |
 | Table 4 | `code/export_tables.py` | `data/results/tables/table4.tsv` ← `data/results/meta_analysis/average_specificity_REML.tsv` |
 | Table S1 | `code/export_tables.py` | `data/results/tables/table_s1_matching_balance.tsv` ← three final `data/matching/production_*matches.tsv` files |
+| Table S2 | `code/export_tables.py` | `data/results/tables/table_s2_random_structure.tsv` ← `data/results/model_diagnostics/*_random_hierarchy.tsv`, `data/results/inference/model_acceptance_gates.tsv` |
 | Fig. 1 | `code/make_figures.py` | `data/figures/fig1_regions_schematic.pdf` (schematic) |
 | Fig. 2 | `code/export_figure_inputs.py`, `code/make_figures.py` | `data/figures_inputs/rq1_region_average.csv` → `data/figures/fig2_rq1_region_average.pdf` |
 | Fig. 3 | same | `data/figures_inputs/rq1_time_resolved.csv` → `data/figures/fig3_trajectories_A01_energy.pdf` |
@@ -116,9 +117,11 @@ rerendered with different fonts.
 | Fig. 7 | same | `data/figures_inputs/meta_multivariate.csv` → `data/figures/fig7_meta_projected_trajectory.pdf` |
 | Fig. S1 | `code/make_fig_s1.py` | `data/figures_inputs/rq1_time_resolved.csv` → `data/figures/figS1_all_direct_effect_trajectories.pdf` |
 
-The current Results manuscript cites Table S1 and Fig. S1; it does **not**
-contain or cite Table S2. No Table S2 has been invented. The original Fig.
-S1 generator was not found; `make_fig_s1.py` was reconstructed from the
+Table S2 is in `Supplementary_material.docx` and lists the 19 models whose
+initial fit had zero match-intercept variance. The 60 included random-structure
+diagnostics document both fit attempts and the 41 models that retained the
+full structure. The exported Table S2 matches all 19 supplementary rows
+exactly. The original Fig. S1 generator was not found; `make_fig_s1.py` was reconstructed from the
 finalized RQ1 pointwise table, while its original exported PDF/PNG are
 included.
 
@@ -133,6 +136,8 @@ included.
   and 106 multivariate projections.
 - `code/export_tables.py` reproduced Table S1 pair counts exactly; SMDs
   agreed with the contemporaneous review table to `3.9e-16` or less.
+- `code/export_tables.py` reproduced all 19 Table S2 rows exactly from the
+  included final model diagnostics and acceptance gates.
 - Reassembling A01/energy from packaged trajectories yielded 497,070 model
   rows and matched official model-data values to absolute tolerance `1e-12`.
 - `data/utterances/v7_known_excluded_utterances.tsv` records source-stage

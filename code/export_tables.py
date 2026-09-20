@@ -9,6 +9,15 @@ import pandas as pd
 
 SYSTEMS = ["A01", "A02", "A03", "A04", "A07", "A08", "A09", "A10", "A11", "A12"]
 FEATURES = ["energy", "centroid", "tilt", "flatness", "flux", "cpps"]
+SUPPLEMENTARY_FEATURES = ["energy", "centroid", "tilt", "flatness", "flux", "cpps"]
+SUPPLEMENTARY_FEATURE_LABELS = {
+    "energy": "Energy",
+    "centroid": "Spectral centroid",
+    "tilt": "Spectral tilt",
+    "flatness": "Spectral flatness",
+    "flux": "Spectral flux",
+    "cpps": "CPPS",
+}
 ARCHITECTURES = {
     "A01": "VAE + AR LSTM-RNN → WaveNet",
     "A02": "VAE + AR LSTM-RNN → WORLD",
@@ -109,6 +118,38 @@ def make_tables(data: Path, out: Path):
     t_s1 = pd.DataFrame(balance)
     assert len(t_s1) == 30 and t_s1.duration_SMD_0_25_pass.all()
     write(t_s1, out, "table_s1_matching_balance.tsv")
+
+    gates = read(data / "results/inference/model_acceptance_gates.tsv")
+    assert len(gates) == 60 and gates.model_id.nunique() == 60
+    removed = []
+    for gate in gates.itertuples(index=False):
+        attempts = read(data / "results/model_diagnostics" / f"{gate.model_id}_random_hierarchy.tsv")
+        assert attempts.attempt.tolist() == list(range(1, len(attempts) + 1))
+        assert attempts.iloc[-1].random_structure == gate.final_random_structure
+        assert not bool(attempts.iloc[-1].singular)
+        if len(attempts) == 1:
+            assert "match_id" in gate.final_random_structure
+            continue
+        assert len(attempts) == 2
+        first = attempts.iloc[0]
+        assert bool(first.singular) and "match_id" in first.zero_variance_components.split(";")
+        assert gate.final_random_structure == "token_occurrence_id + utterance_id"
+        removed.append({
+            "feature": SUPPLEMENTARY_FEATURE_LABELS[gate.feature],
+            "system": gate.system,
+            "initial_fit": "singular; match variance at zero",
+            "final_random_structure": "token occurrence + utterance",
+        })
+    assert len(removed) == 19
+    t_s2 = pd.DataFrame(removed)
+    t_s2["feature_order"] = t_s2.feature.map(
+        {SUPPLEMENTARY_FEATURE_LABELS[f]: i for i, f in enumerate(SUPPLEMENTARY_FEATURES)}
+    )
+    t_s2["system_order"] = t_s2.system.map({s: i for i, s in enumerate(SYSTEMS)})
+    t_s2 = t_s2.sort_values(["feature_order", "system_order"]).drop(
+        columns=["feature_order", "system_order"]
+    )
+    write(t_s2, out, "table_s2_random_structure.tsv")
 
 
 if __name__ == "__main__":
